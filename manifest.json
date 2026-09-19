@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Paperflow · 论文舒读",
+  "version": "0.1.1",
+  "description": "把学术 PDF 重排为单栏阅读页。在本机处理，保留原文，随时查看原页。",
+  "minimum_chrome_version": "119",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://aclanthology.org/*",
+    "file:///*"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+    "default_title": "用 Paperflow 阅读这份 PDF"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'none'"
+  }
+}

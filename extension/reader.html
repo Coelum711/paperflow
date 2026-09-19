@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Paperflow · 论文舒读</title><link rel="stylesheet" href="reader.css"></head>
+<body>
+<a class="skip" href="#article">跳到正文</a>
+<header class="topbar"><a class="brand" href="reader.html"><span class="mark">P</span> Paperflow <span class="brand-sub">论文舒读</span></a><div class="actions"><button id="choose">打开 PDF</button><button id="export" disabled>保存 HTML</button></div></header>
+<input id="file" type="file" accept="application/pdf,.pdf" hidden>
+<div class="shell">
+<aside class="sidebar" aria-label="阅读导航">
+<p class="eyebrow">YOUR READING SPACE</p><h2>让论文，顺着读。</h2><p class="muted intro">原文内容，换一种更轻松的排版。</p>
+<details class="settings" open><summary>阅读设置</summary>
+<label>字号 <output id="size-value">20</output><input id="size" type="range" min="16" max="32" value="20"></label>
+<label>行距 <output id="leading-value">1.85</output><input id="leading" type="range" min="1.3" max="2.5" step="0.05" value="1.85"></label>
+<label>宽度 <output id="width-value">720</output><input id="width" type="range" min="480" max="1000" step="20" value="720"></label>
+<label>配色<select id="theme"><option value="paper">暖纸色</option><option value="light">明亮</option><option value="dark">夜间</option></select></label>
+</details>
+<details class="settings"><summary>排版修正</summary><label>原文版式<select id="layout"><option value="auto">自动识别</option><option value="double">双栏论文</option><option value="single">单栏文档</option></select></label><label class="check"><input id="margins" type="checkbox" checked>隐藏重复页眉、页脚和页码</label><p class="hint">顺序不对时可切换版式。所有修正都可以还原。</p></details>
+<nav id="toc" aria-label="章节目录"></nav>
+<p class="privacy">在你的设备上处理<br>不上传论文 · 不摘要 · 不改写</p>
+</aside>
+<main id="main">
+<section id="welcome" class="welcome"><p class="eyebrow">LESS FRICTION. MORE READING.</p><h1>从双栏 PDF，<br>回到连贯的阅读。</h1><p>打开一份论文。让正文自然向下展开，<br>把注意力留给内容。</p><button id="start" class="primary">选择本地 PDF</button><p class="hint">也可以把 PDF 拖到这里 · 文件只在本机处理</p><form id="url-form"><label for="url">或打开网页 PDF</label><div class="url-row"><input id="url" type="url" placeholder="https://aclanthology.org/….pdf" required><button type="submit">打开</button></div></form><div class="feature-row"><span>单栏连续正文</span><span>随时对照原页</span><span>你的阅读节奏</span></div></section>
+<div id="status" role="status" aria-live="polite"></div><button id="authorize" hidden>允许读取这个网站并重试</button><progress id="progress" hidden aria-label="转换进度"></progress>
+<section id="document" hidden><div class="document-meta"><span id="filename"></span><span id="page-count"></span></div><p id="notice" class="notice"></p><details id="warnings" hidden><summary>有些页面需要检查</summary><ul></ul></details><article id="article" tabindex="-1" aria-label="论文正文"></article><section id="originals"><h2>原页对照</h2><p class="hint">图、表和复杂公式以原页为准。点击正文旁的页码可直接跳到这里。</p><div id="page-list"></div></section></section>
+</main>
+</div><script type="module" src="reader.js"></script>
+</body></html>

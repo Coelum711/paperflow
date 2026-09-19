@@ -1,0 +1,14 @@
+{
+  "name": "paperflow-reader",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check:pdf": "node scripts/check-pdf.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "5.4.624"
+  }
+}
